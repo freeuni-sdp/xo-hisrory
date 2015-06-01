@@ -3,3 +3,4 @@ language: java
 deploy:
    provider: heroku
    api_key: "441b4be0-7c3e-4872-9d17-cc8beb646c6a"
+   app: xo-history
