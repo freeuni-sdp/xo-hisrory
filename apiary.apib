@@ -1,0 +1,67 @@
+FORMAT: 1A
+HOST: http://xo-history.herokuapp.com/
+
+# xo-history
+
+xo-history is a simple API allowing consumers to view history of games and points to others players
+
+# history API Root [/]
+
++ opponentToken - game opponent
++ date - date when game was played
++ result - result how game was finished
++ gameID - ID of game
+
+## List all games [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "date": "21-12-2009",
+                    "result": "1"
+                    "gameID": "4"
+                    "opponentToken": "01f31t-13t45-fsgst-53ge-wety2356"
+                }
+            ]
+
+## points to users [/points]
+
++ opponentToken - game opponent
++ points - how many points does user have to another player
+
+## list all pointss to other users[GET/points]
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "opponentToken": "01f31t-13t45-fsgst-53ge-wety2356"
+                    "point": "3"
+                }
+            ]
+            
+## full game history [/gameHistory]
+
++ userToken - user who made a move
++ cell - cell which was filled on concrete move
+
+## List full game history [GET/gameHistory{?game_id}]
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    "userToken": "01f31t-13t45-fsgst-53ge-wety2356"
+                    "cell": [
+                    1,
+                    2
+                    ]
+                }
+            ]
