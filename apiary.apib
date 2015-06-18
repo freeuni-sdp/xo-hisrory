@@ -56,12 +56,13 @@ xo-history is a simple API allowing consumers to view history of games and point
 
     + Body
 
-            [
-                {
-                    "userToken": "01f31t-13t45-fsgst-53ge-wety2356"
-                    "cell": [
-                    1,
-                    2
-                    ]
-                }
-            ]
+            {
+  "moves": [
+    {"i":1,"j":1},
+    {"i":0,"j":2},
+    {"i":1,"j":2},
+    {"i":2,"j":1},
+    {"i":1,"j":0}
+  ],
+  "first": "01f31t-13t45-fsgst-53ge-wety2356"
+}
