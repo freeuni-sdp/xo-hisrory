@@ -3,11 +3,11 @@ package ge.edu.freeuni.sdp.xo.history;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+@Path("/")
 @Consumes({ MediaType.APPLICATION_JSON })
 @Produces({ MediaType.APPLICATION_JSON })
 public class HistoryService {
 
-    @Path("")
     @GET
     public void getAllGames() {
 
@@ -21,7 +21,7 @@ public class HistoryService {
 
     @Path("{gameHistory}")
     @GET
-    public void getGameHistory(@PathParam("game_id") String gameID) {
+    public void getGameHistory(@QueryParam("game_id") String gameID) {
 
     }
 
