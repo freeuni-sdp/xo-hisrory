@@ -2,6 +2,7 @@ package ge.edu.freeuni.sdp.xo.history;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/")
 @Consumes({ MediaType.APPLICATION_JSON })
@@ -9,20 +10,20 @@ import javax.ws.rs.core.MediaType;
 public class HistoryService {
 
     @GET
-    public void getAllGames() {
-
+    public List<History> getAllGamesHistory() {
+        return null;
     }
 
     @Path("{points}")
     @GET
-    public void getPointsToOthers() {
-
+    public List<PointToOpponent> getPointsToOthers() {
+        return null;
     }
 
     @Path("{gameHistory}")
     @GET
-    public void getGameHistory(@QueryParam("game_id") String gameID) {
-
+    public FullGameHistory getGameHistory(@QueryParam("game_id") String gameID) {
+        return null;
     }
 
 }
