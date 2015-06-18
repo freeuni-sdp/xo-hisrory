@@ -1,10 +1,13 @@
 package java.ge.edu.freeuni.sdp.xo.history;
 
+import ge.edu.freeuni.sdp.xo.history.CheckAuthorization;
 import ge.edu.freeuni.sdp.xo.history.HistoryService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
+import org.junit.Before;
 import org.junit.Test;
-
+import org.mockito.Mockito;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Response;
 
@@ -27,6 +30,14 @@ public class TestHistoryService extends JerseyTest {
     public void testGetPointsToOthers() {
         Response actual = target("/points").request().get();
         assertEquals(Response.Status.OK.getStatusCode(), actual.getStatus());
+    }
+
+    @Test (expected=WebApplicationException.class)
+    public void testPublicChatMessagesException() {
+        HistoryService historyService = new HistoryService();
+        historyService.checkAuthorization = Mockito.mock(CheckAuthorization.class);
+        Mockito.when(historyService.checkAuthorization.isAuthorized()).thenReturn(false);
+        historyService.getAllGamesHistory();
     }
 
     @Test
