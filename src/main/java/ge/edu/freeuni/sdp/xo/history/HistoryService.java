@@ -17,13 +17,13 @@ public class HistoryService {
         return fakeDataBase.getAllGames();
     }
 
-    @Path("{points}")
+    @Path("points")
     @GET
     public List<PointToOpponent> getPointsToOthers() {
         return fakeDataBase.getPointsToOthers();
     }
 
-    @Path("{gameHistory}")
+    @Path("gameHistory")
     @GET
     public FullGameHistory getGameHistory(@QueryParam("game_id") String gameId) {
         if (gameId == null)
