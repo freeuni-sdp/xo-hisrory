@@ -27,7 +27,7 @@ public class HistoryService {
     @GET
     public FullGameHistory getGameHistory(@QueryParam("game_id") String gameId) {
         if (gameId == null)
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
+            throw new WebApplicationException(Response.Status.BAD_REQUEST);
 
         return fakeDataBase.getGameHistory(gameId);
 

@@ -19,17 +19,31 @@ public class TestHistoryService extends JerseyTest {
 
     @Test
     public void testGetAllGamesHistory() {
+        Response actual = target("/").request().get();
+        assertEquals(Response.Status.OK.getStatusCode(), actual.getStatus());
     }
 
     @Test
     public void testGetPointsToOthers() {
+        Response actual = target("/points").request().get();
+        assertEquals(Response.Status.OK.getStatusCode(), actual.getStatus());
     }
 
     @Test
     public void testGetGameHistory() {
+        Response actual = target("/gameHistory?game_id=5").request().get();
+        assertEquals(Response.Status.OK.getStatusCode(), actual.getStatus());
     }
 
     @Test
     public void testGetGameHistoryWithException() {
+        Response actual = target("/gameHistory").request().get();
+        assertEquals(Response.Status.BAD_REQUEST, actual.getStatus());
+    }
+
+    @Test
+    public void testNotFound() {
+        Response actual = target("/notFound").request().get();
+        assertEquals(Response.Status.NOT_FOUND, actual.getStatus());
     }
 }
